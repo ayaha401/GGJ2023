@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Money : MonoBehaviour
 {
+    [HideInInspector] public bool changeable = false;
     private int money;
     public int moneyProp => money;
+    public Action moneyUIDraw;
 
     /// <summary>
     /// èäéùã‡Çèâä˙âªÇ∑ÇÈ
     /// </summary>
     public void Init()
     {
+        if (!changeable) return;
         money = GameParameter.MONEY_INIT;
+        money = Mathf.Clamp(money, GameParameter.MONEY_MIN, GameParameter.MONEY_MAX);
+        moneyUIDraw();
     }
 
     /// <summary>
@@ -21,8 +27,10 @@ public class Money : MonoBehaviour
     /// <param name="value">â¡éZó </param>
     public void Plus(int value)
     {
+        if (!changeable) return;
         money += value;
         money = Mathf.Min(money, GameParameter.MONEY_MAX);
+        moneyUIDraw();
     }
 
     /// <summary>
@@ -31,7 +39,9 @@ public class Money : MonoBehaviour
     /// <param name="value">å∏ÇÁÇ∑ó </param>
     public void Minus(int value)
     {
+        if (!changeable) return;
         money -= value;
         money = Mathf.Max(money, GameParameter.MONEY_MIN);
+        moneyUIDraw();
     }
 }
