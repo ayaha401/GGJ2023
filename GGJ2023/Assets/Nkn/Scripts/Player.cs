@@ -7,8 +7,14 @@ public class Player : MonoBehaviour
     [SerializeField, Tooltip("草を抜けるドラッグの長さ")]
     private float canPullOutPower = 1;
 
-    //[HideInInspector]
+    [HideInInspector]
     public float clickRadius = 0.5f;
+
+    [SerializeField]
+    Timer timer;
+
+    [SerializeField]
+    GameObject PullOutCircle;
 
     // クリックしたところの座標
     Vector2 dragStartPos;
@@ -22,6 +28,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (timer.onTimeUp) return;
         if (Input.GetMouseButtonDown(0)) MouseDown();
         if (Input.GetMouseButtonUp(0)) MouseUp();
     }
@@ -72,7 +79,7 @@ public class Player : MonoBehaviour
         // ドラッグベクトルの表示
         Debug.DrawLine(dragStartPos, dragEndPos);
         // 上180° = ベクトルのYが0より大きい
-        // ドラッグが
+        // ドラッグが一定以上の長さならカウント
         bool canPullOut = dragVec.y > 0
                        && dragPower >= canPullOutPower;
 

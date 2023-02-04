@@ -394,6 +394,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 799061847034160860, guid: 031355981f16e24489c8f887e9c912bb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 799061848179589248, guid: 031355981f16e24489c8f887e9c912bb, type: 3}
       propertyPath: m_Name
       value: MainGame
@@ -625,6 +629,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1572587501900324994, guid: ce632e565797d524cae1d5217a644d3b, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 1264618801}
     - target: {fileID: 1572587501900324995, guid: ce632e565797d524cae1d5217a644d3b, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -706,6 +714,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1264618801 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8722297057155799041, guid: 031355981f16e24489c8f887e9c912bb, type: 3}
+  m_PrefabInstance: {fileID: 489403091}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e1c66c019b28b459d449fb30c1ade0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1266603269
 GameObject:
   m_ObjectHideFlags: 0

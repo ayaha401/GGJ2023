@@ -8,6 +8,10 @@ public class Timer : MonoBehaviour
     [HideInInspector] public bool changeable = false;
     private float limit;
     public float limitProp => limit;
+
+    private bool timeUp;
+    public bool onTimeUp => timeUp;
+
     public Action<float> timerUIDraw;
 
     /// <summary>
@@ -27,12 +31,14 @@ public class Timer : MonoBehaviour
     {
         if (limit < 0f)
         {
+            timeUp = true;
             return true;
         }
         else
         {
             limit -= Time.deltaTime;
             timerUIDraw(limit);
+            timeUp = false;
             return false;
         }
     }

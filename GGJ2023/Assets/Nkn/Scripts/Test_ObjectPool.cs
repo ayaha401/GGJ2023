@@ -75,6 +75,7 @@ public class Test_ObjectPool : MonoBehaviour
                 {
                     if (item.activeSelf) continue;
                     inactiveObj = item;
+                    break;
                 }
             }
             catch
