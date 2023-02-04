@@ -27,4 +27,12 @@ public static class GameParameter
     /// ‚¨‹à‚ÌÅ‘å’l
     /// </summary>
     public static int MONEY_MAX = 10000;
+
+    // ŠÔŠÖŒW
+    
+    /// <summary>
+    /// §ŒÀŠÔ(•b)
+    /// </summary>
+    public static float TIME_LIMIT = 6f;
+
 }

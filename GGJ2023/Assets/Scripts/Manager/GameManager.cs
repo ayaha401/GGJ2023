@@ -19,11 +19,17 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         titleManager.EndTitle += MainGameStart;
+        mainGameManager.EndMainGame += MainGameEnd;
     }
 
     public void MainGameStart(bool enable)
     {
         titleManager.titleEnable = false;
         mainGameManager.Init();
+    }
+
+    public void MainGameEnd()
+    {
+        mainGameManager.gameUpdatable = false;
     }
 }
