@@ -11,6 +11,8 @@ public class Grass : MonoBehaviour
 
     Test_ObjectPool objectPool;
 
+    Money money;
+
     void Start()
     {
         objectPool = transform.GetComponentInParent<Test_ObjectPool>();
@@ -29,5 +31,10 @@ public class Grass : MonoBehaviour
     {
         // ïsê≥Ç»ílÇÃñhé~
         this.level = Mathf.Clamp(level, MIN_LEVEL, MAX_LEVEL);
+    }
+
+    public void SetMoney(Money money)
+    {
+        this.money = money;
     }
 }
