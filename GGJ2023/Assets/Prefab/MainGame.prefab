@@ -1926,6 +1926,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3699315703954468228}
   - component: {fileID: 4561055626712378255}
+  - component: {fileID: 1398591224402624410}
   m_Layer: 0
   m_Name: Upgrade
   m_TagString: Untagged
@@ -1973,6 +1974,21 @@ MonoBehaviour:
   upgrade: {fileID: 6545522899718632708}
   gloveLevelUI: {fileID: 4131939188407688463}
   areaLevelUI: {fileID: 1156567609366910169}
+--- !u!114 &1398591224402624410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5812981914367878343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d490e125235f89e4d94729eb8fe7e2b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade: {fileID: 6545522899718632708}
+  glovePriceUI: {fileID: 1395762709209137283}
+  areaPriceUI: {fileID: 9131531997662581972}
 --- !u!1 &6008174300545923271
 GameObject:
   m_ObjectHideFlags: 0

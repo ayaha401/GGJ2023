@@ -18,6 +18,9 @@ public class Upgrade : MonoBehaviour
     public Action<int> gloveUIDraw;
     public Action<int> areaUIDraw;
 
+    public Action<int> glovePriceUIDraw;
+    public Action<int> areaPriceUIDraw;
+
     /// <summary>
     /// èâä˙âª
     /// </summary>
@@ -25,8 +28,14 @@ public class Upgrade : MonoBehaviour
     {
         gloveLevel = GameParameter.GLOVE_INIT_LEVEL;
         areaLevel = GameParameter.AREA_INIT_LEVEL;
+
         gloveUIDraw(gloveLevel);
         areaUIDraw(areaLevel);
+
+        int glovePrice = glovePriceTable[gloveLevel - 1];
+        glovePriceUIDraw(glovePrice);
+        int areaPrice = areaPriceTable[areaLevel - 1];
+        areaPriceUIDraw(areaPrice);
     }
 
     /// <summary>
@@ -41,7 +50,9 @@ public class Upgrade : MonoBehaviour
         {
             money.Minus(glovePrice);
             gloveLevel++;
+            glovePrice = glovePriceTable[gloveLevel - 1];
             gloveUIDraw(gloveLevel);
+            glovePriceUIDraw(glovePrice);
         }
     }
 
@@ -57,7 +68,9 @@ public class Upgrade : MonoBehaviour
         {
             money.Minus(areaPrice);
             areaLevel++;
+            areaPrice = areaPriceTable[areaLevel - 1];
             areaUIDraw(areaLevel);
+            areaPriceUIDraw(areaPrice);
         }
     }
 }

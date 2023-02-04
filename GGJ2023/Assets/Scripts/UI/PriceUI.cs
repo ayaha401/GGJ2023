@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PriceUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Upgrade upgrade;
+    [SerializeField] private Text glovePriceUI;
+    [SerializeField] private Text areaPriceUI;
+
+    private void Awake()
     {
-        
+        upgrade.glovePriceUIDraw += DrawGlovePrice;
+        upgrade.areaPriceUIDraw += DrawAreaPrice;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void DrawGlovePrice(int price)
     {
-        
+        glovePriceUI.text = price.ToString();
+    }
+
+    private void DrawAreaPrice(int price)
+    {
+        areaPriceUI.text = price.ToString();
     }
 }
