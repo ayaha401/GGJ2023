@@ -4,17 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    //public enum GameFlow
-    //{
-    //    TitleInit,
-    //    Title,
-    //    TitleEnd,
-    //    MainGame,
-    //    Result,
-    //}
-
     [SerializeField] private TitleManager titleManager;
     [SerializeField] private MainGameManager mainGameManager;
+    [SerializeField] private ResultManager resultManager;
 
     private void Awake()
     {
@@ -22,14 +14,35 @@ public class GameManager : MonoBehaviour
         mainGameManager.EndMainGame += MainGameEnd;
     }
 
-    public void MainGameStart(bool enable)
+    private void Start()
+    {
+        resultManager.HideResult();
+    }
+
+    /// <summary>
+    /// メインゲーム開始
+    /// </summary>
+    public void MainGameStart()
     {
         titleManager.titleEnable = false;
         mainGameManager.Init();
     }
 
+    /// <summary>
+    /// メインゲーム終了
+    /// </summary>
     public void MainGameEnd()
     {
         mainGameManager.gameUpdatable = false;
+        resultManager.ShowResult();
+    }
+
+    /// <summary>
+    /// ゲームリスタート
+    /// </summary>
+    public void GameReStart()
+    {
+        resultManager.HideResult();
+        mainGameManager.Init();
     }
 }
