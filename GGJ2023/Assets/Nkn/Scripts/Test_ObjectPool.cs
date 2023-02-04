@@ -10,6 +10,9 @@ public class Test_ObjectPool : MonoBehaviour
     [SerializeField]
     GameObject grassPrefab;
 
+    [SerializeField]
+    Money money;
+
     List<GameObject> grasses = new List<GameObject>();
 
     Vector2 defaultPos = new Vector2(200, 200);
@@ -38,6 +41,7 @@ public class Test_ObjectPool : MonoBehaviour
             GameObject obj = Instantiate(grassPrefab, defaultPos, Quaternion.identity, gameObject.transform);
             grasses.Add(obj);
             obj.SetActive(false);
+            obj.GetComponent<Grass>().SetMoney(money);
         }
     }
 

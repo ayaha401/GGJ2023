@@ -6,8 +6,19 @@ public class Grass : MonoBehaviour
 {
     [Range(1, 3)]
     public int level = 1;
+
+    [SerializeField]
+    private int level1MoneyValue;
+
+    [SerializeField]
+    private int level2MoneyValue;
+
+    [SerializeField]
+    private int level3MoneyValue;
+
     const int MAX_LEVEL = 3;
     const int MIN_LEVEL = 1;
+
 
     Test_ObjectPool objectPool;
 
@@ -23,8 +34,25 @@ public class Grass : MonoBehaviour
     /// </summary>
     public void PullOut()
     {
-        Debug.Log("ëêî≤ÇØÇÈ", gameObject);
+        int moneyValue;
+        switch (level)
+        {
+            case 1:
+                moneyValue = level1MoneyValue;
+                break;
+            case 2:
+                moneyValue = level2MoneyValue;
+                break;
+            case 3:
+                moneyValue = level3MoneyValue;
+                break;
+            default:
+                moneyValue = 0;
+                break;
+        }
+
         objectPool.MovingToPool(gameObject);
+        money.Plus(moneyValue);
     }
 
     public void Setlevel(int level)

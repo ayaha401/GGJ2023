@@ -240,6 +240,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObjectPool
       objectReference: {fileID: 0}
+    - target: {fileID: 3109119742302285311, guid: e0fda613ee3da634bbcd2d31302f66ec, type: 3}
+      propertyPath: money
+      value: 
+      objectReference: {fileID: 489403092}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0fda613ee3da634bbcd2d31302f66ec, type: 3}
 --- !u!1001 &179363877
@@ -1006,6 +1010,18 @@ PrefabInstance:
     - target: {fileID: 5261961937986796456, guid: 18a6eb15a55aacf428ef85e173068b49, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5261961937986796458, guid: 18a6eb15a55aacf428ef85e173068b49, type: 3}
+      propertyPath: level1MoneyValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5261961937986796458, guid: 18a6eb15a55aacf428ef85e173068b49, type: 3}
+      propertyPath: level2MoneyValue
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5261961937986796458, guid: 18a6eb15a55aacf428ef85e173068b49, type: 3}
+      propertyPath: level3MoneyValue
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 5261961937986796461, guid: 18a6eb15a55aacf428ef85e173068b49, type: 3}
       propertyPath: m_Name
