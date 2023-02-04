@@ -7,6 +7,7 @@ public class MainGameManager : MonoBehaviour
 {
     [SerializeField] private Money money;
     [SerializeField] private Timer timer;
+    [SerializeField] private Upgrade upgrade;
 
     public bool gameUpdatable = false;
 
@@ -20,6 +21,7 @@ public class MainGameManager : MonoBehaviour
         timer.changeable = true;
         money.Init();
         timer.Init();
+        upgrade.Init();
     }
 
     private void Update()
