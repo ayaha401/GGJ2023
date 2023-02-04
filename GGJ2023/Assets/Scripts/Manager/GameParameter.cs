@@ -35,4 +35,21 @@ public static class GameParameter
     /// </summary>
     public static float TIME_LIMIT = 6f;
 
+    // アップグレード関係＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+    /// <summary>
+    /// 軍手の初期レベル
+    /// </summary>
+    public static int GLOVE_INIT_LEVEL = 1;
+
+    /// <summary>
+    /// 一度に取る範囲の初期レベル
+    /// </summary>
+    public static int AREA_INIT_LEVEL = 1;
+
+    /// <summary>
+    /// アップグレードの最大レベル
+    /// </summary>
+    public static int UPGRADE_MAX_LEVEL = 9;
+
 }
