@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Grass : MonoBehaviour
 {
-    [Range(1, 3)]
+    [HideInInspector]
     public int level = 1;
 
     [SerializeField]
@@ -16,17 +16,22 @@ public class Grass : MonoBehaviour
     [SerializeField]
     private int level3MoneyValue;
 
+    [SerializeField]
+    Sprite[] grassSprite;
+
     const int MAX_LEVEL = 3;
     const int MIN_LEVEL = 1;
 
 
     Test_ObjectPool objectPool;
-
+    [SerializeField]
+    SpriteRenderer spriteRenderer;
     Money money;
 
     void Start()
     {
         objectPool = transform.GetComponentInParent<Test_ObjectPool>();
+        //spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     /// <summary>
@@ -59,6 +64,7 @@ public class Grass : MonoBehaviour
     {
         // ïsê≥Ç»ílÇÃñhé~
         this.level = Mathf.Clamp(level, MIN_LEVEL, MAX_LEVEL);
+        spriteRenderer.sprite = grassSprite[level - 1];
     }
 
     public void SetMoney(Money money)

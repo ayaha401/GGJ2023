@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
     private float limit;
     public float limitProp => limit;
 
-    private bool timeUp;
+    private bool timeUp = false;
     public bool onTimeUp => timeUp;
 
     public Action<float> timerUIDraw;

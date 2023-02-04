@@ -41,7 +41,8 @@ public class Test_ObjectPool : MonoBehaviour
             GameObject obj = Instantiate(grassPrefab, defaultPos, Quaternion.identity, gameObject.transform);
             grasses.Add(obj);
             obj.SetActive(false);
-            obj.GetComponent<Grass>().SetMoney(money);
+            Grass grass = obj.GetComponent<Grass>();
+            grass.SetMoney(money);
         }
     }
 
@@ -90,6 +91,8 @@ public class Test_ObjectPool : MonoBehaviour
             insPos.y = Random.Range(insPosYRangeMin, insPosYRangeMax);
 
             inactiveObj.transform.position = insPos;
+            // ã≠Ç≥ÇÃê›íË
+            inactiveObj.GetComponent<Grass>().Setlevel(Random.Range(1, 4));
             inactiveObj.SetActive(true);
         }
     }
