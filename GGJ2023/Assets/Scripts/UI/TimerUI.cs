@@ -26,6 +26,6 @@ public class TimerUI : MonoBehaviour
     {
         float leftTime = limitMaxTime - currentTime;
         float timeRatio = leftTime / limitMaxTime;
-        dayAndNightImage.transform.eulerAngles = new Vector3(0f, 0f, -ROTATE_ANGLE * timeRatio);
+        dayAndNightImage.transform.eulerAngles = new Vector3(0f, 0f, -ROTATE_ANGLE * timeRatio + 180f);
     }
 }
