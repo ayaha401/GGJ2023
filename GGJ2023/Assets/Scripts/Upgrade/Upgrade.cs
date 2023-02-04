@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Upgrade : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class Upgrade : MonoBehaviour
     private int[] glovePriceTable = new int[8]{100, 120, 140, 160, 180, 200, 400, 600};
     private int[] areaPriceTable = new int[8]{100, 120, 140, 160, 180, 200, 400, 600};
 
+    public Action<int> gloveUIDraw;
+    public Action<int> areaUIDraw;
+
     /// <summary>
     /// èâä˙âª
     /// </summary>
@@ -21,6 +25,8 @@ public class Upgrade : MonoBehaviour
     {
         gloveLevel = GameParameter.GLOVE_INIT_LEVEL;
         areaLevel = GameParameter.AREA_INIT_LEVEL;
+        gloveUIDraw(gloveLevel);
+        areaUIDraw(areaLevel);
     }
 
     /// <summary>
@@ -35,6 +41,7 @@ public class Upgrade : MonoBehaviour
         {
             money.Minus(glovePrice);
             gloveLevel++;
+            gloveUIDraw(gloveLevel);
         }
     }
 
@@ -50,6 +57,7 @@ public class Upgrade : MonoBehaviour
         {
             money.Minus(areaPrice);
             areaLevel++;
+            areaUIDraw(areaLevel);
         }
     }
 }
