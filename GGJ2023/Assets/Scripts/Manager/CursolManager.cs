@@ -9,10 +9,10 @@ public class CursolManager : MonoBehaviour
 #if UNITY_EDITOR
         return;
 #else
-     // カーソルをウィンドウから出さない
-    Screen.lockCursor = true;
-    // カーソルを表示しない
-    Screen.showCursor = false;
+        // カーソルをウィンドウから出さない
+        Cursor.lockState  = CursorLockMode.Confined;
+        // カーソルを表示しない
+        Cursor.visible = false;
 #endif
     }
 }
