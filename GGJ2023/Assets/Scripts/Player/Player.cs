@@ -8,10 +8,7 @@ public class Player : MonoBehaviour
     private float canPullOutPower = 1;
 
     [HideInInspector]
-    public float clickArea = 0.5f;
-
-    [SerializeField]
-    float pullOutPower = 1;
+    public float clickAreaRadius = 0.5f;
 
     [SerializeField]
     Timer timer;
@@ -28,10 +25,15 @@ public class Player : MonoBehaviour
     [SerializeField]
     GrassSound grassSound;
 
+    [SerializeField]
+    Upgrade upgrade;
+
     // クリックしたところの座標
     Vector2 dragStartPos;
     List<Grass> clickGrasses = new List<Grass>();
     Camera mainCamera;
+
+    bool flg;
 
     void Start()
     {
@@ -43,7 +45,13 @@ public class Player : MonoBehaviour
     {
         Vector3 glovePos = Input.mousePosition;
         image.rectTransform.position = glovePos;
-        
+
+        if (!flg) return;
+
+        GloveUpgrade(upgrade.gloveLevelProp);
+        AreaUpgrade(upgrade.areaLevelProp);
+
+
         if (timer.onTimeUp)
         {
             PullOutCircle.SetActive(false);
@@ -70,7 +78,7 @@ public class Player : MonoBehaviour
         dragStartPos = GetMouseWorldPos();
 
         // レイで何に当たったか判断
-        RaycastHit2D[] raycasts = Physics2D.CircleCastAll(dragStartPos, clickArea, Vector2.zero);
+        RaycastHit2D[] raycasts = Physics2D.CircleCastAll(dragStartPos, clickAreaRadius, Vector2.zero);
         if (raycasts == null) return;
 
         foreach (var item in raycasts)
@@ -103,7 +111,7 @@ public class Player : MonoBehaviour
 
         // ドラッグの開始位置と終了位置からベクトルを計算
         Vector2 dragVec = dragEndPos - dragStartPos;
-        float dragPower = dragVec.magnitude * pullOutPower;
+        float dragPower = dragVec.magnitude;
         // ドラッグベクトルの表示
         Debug.DrawLine(dragStartPos, dragEndPos);
         // 上180° = ベクトルのYが0より大きい
@@ -115,7 +123,7 @@ public class Player : MonoBehaviour
         // 草を抜く
         foreach (var grass in clickGrasses)
         {
-            grass.PullOut();
+            grass.PullOut(GameParameter.PlayerATK);
         }
 
         clickGrasses.Clear();
@@ -130,20 +138,24 @@ public class Player : MonoBehaviour
 
     public void GloveUpgrade(int currentLevel)
     {
-        //TODO:要調整
-        pullOutPower = 1 * currentLevel;
+        Debug.Log(currentLevel);
+        GameParameter.PlayerATK = 1 * GameParameter.glovePowerTable[currentLevel - 1];
     }
 
     public void AreaUpgrade(int currentLevel)
     {
-        //TODO:要調整
-        clickArea = 1 * currentLevel;
+        clickAreaRadius = 1 * GameParameter.areaPowerTable[currentLevel - 1];
         AreaRender();
     }
 
     // 除草範囲を調整
     void AreaRender()
     {
-        PullOutCircle.transform.localScale = new Vector3(clickArea * 2, clickArea * 2, 1);
+        PullOutCircle.transform.localScale = new Vector3(clickAreaRadius * 2, clickAreaRadius * 2, 1);
+    }
+
+    public void ResetStutus()
+    {
+        flg = true;
     }
 }

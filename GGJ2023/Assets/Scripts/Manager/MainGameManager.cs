@@ -10,6 +10,7 @@ public class MainGameManager : MonoBehaviour
     [SerializeField] private Upgrade upgrade;
     [SerializeField] private ObjectPool objectPool;
     [SerializeField] private ClearSound sound;
+    [SerializeField] private Player player;
 
     public bool gameUpdatable = false;
 
@@ -25,7 +26,7 @@ public class MainGameManager : MonoBehaviour
         money.Init();
         timer.Init();
         upgrade.Init();
-
+        player.ResetStutus();
         // ÉQÅ[ÉÄâÊñ Ç…èoÇ∑
         objectPool.GenerateGrass(GameParameter.GENERATECOUNT);
     }
