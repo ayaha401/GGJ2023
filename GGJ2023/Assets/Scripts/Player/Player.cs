@@ -40,14 +40,15 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        Vector3 glovePos = Input.mousePosition;
+        image.rectTransform.position = glovePos;
+        
         if (timer.onTimeUp)
         {
             PullOutCircle.SetActive(false);
             return;
         }
 
-        Vector3 glovePos = Input.mousePosition;
-        image.rectTransform.position = glovePos;
         PullOutCircle.transform.position = GetMouseWorldPos();
 
         if (Input.GetMouseButtonDown(0)) MouseDown();
