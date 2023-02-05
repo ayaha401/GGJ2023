@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     Image image;
+
     [SerializeField]
     Sprite[] gloveSprites;
 

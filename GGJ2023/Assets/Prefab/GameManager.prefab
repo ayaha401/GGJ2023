@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 2734314027207620628}
   - component: {fileID: 2529151050100140965}
   - component: {fileID: 3473502531428378347}
+  - component: {fileID: 8912624026740052665}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -163,8 +164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079086bcd09e391448a2c5435713f6c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchSoundSource: {fileID: 0}
-  pulloutSoundSource: {fileID: 0}
+  touchSoundSource: {fileID: 3882338344397851850}
+  pulloutSoundSource: {fileID: 2532323405534982092}
 --- !u!114 &3882338344397851850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +260,7 @@ MonoBehaviour:
   _playOnStart: 0
   _regionOnStart: {fileID: 0}
   _listenerOnStart: {fileID: 0}
-  _use3dPositioning: 1
+  _use3dPositioning: 0
   _freezeOrientation: 0
   _loop: 0
   _volume: 1
@@ -289,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94364ae7ef729374fb81559a82ec40a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearSoundSource: {fileID: 0}
+  clearSoundSource: {fileID: 3473502531428378347}
 --- !u!114 &3473502531428378347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,3 +324,15 @@ MonoBehaviour:
     - 0
   _cueName: Clear
   _cueSheet: SE
+--- !u!114 &8912624026740052665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4460064166726983716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 169d0ee63b103d949b2ab4bd4c4df328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
