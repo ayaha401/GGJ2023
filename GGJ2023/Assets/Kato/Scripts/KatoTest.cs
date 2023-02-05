@@ -5,6 +5,8 @@ using UnityEngine;
 public class KatoTest : MonoBehaviour
 {
     [SerializeField] private Money money;
+
+    [SerializeField] GrassSound sound;
     void Start()
     {
         money.Init();
@@ -14,12 +16,14 @@ public class KatoTest : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            money.Plus(100);
+            //money.Plus(100);
+            sound.PlayTouchSound();
         }
 
         if (Input.GetMouseButtonDown(1))
         {
-            money.Minus(100);
+            //money.Minus(100);
+            sound.PlayPulloutSound();
         }
     }
 }

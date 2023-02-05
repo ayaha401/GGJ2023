@@ -133,6 +133,9 @@ GameObject:
   m_Component:
   - component: {fileID: 104748450}
   - component: {fileID: 104748449}
+  - component: {fileID: 104748452}
+  - component: {fileID: 104748451}
+  - component: {fileID: 104748453}
   m_Layer: 0
   m_Name: TestObj
   m_TagString: Untagged
@@ -153,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: {fileID: 1757237704}
+  sound: {fileID: 104748452}
 --- !u!4 &104748450
 Transform:
   m_ObjectHideFlags: 0
@@ -160,14 +164,94 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104748448}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1672.1394, y: 931.522, z: 8.594991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &104748451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104748448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e631c3b9947b54c823c6853a05529c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 0
+  _regionOnStart: {fileID: 0}
+  _listenerOnStart: {fileID: 0}
+  _use3dPositioning: 1
+  _freezeOrientation: 0
+  _loop: 0
+  _volume: 1
+  _pitch: 0
+  _androidUseLowLatencyVoicePool: 0
+  need_to_player_update_all: 1
+  _use3dRandomization: 0
+  _randomPositionListMaxLength: 0
+  randomize3dConfig:
+    followsOriginalSource: 0
+    calculationType: 0
+    calculationParameters:
+    - 0
+    - 0
+    - 0
+  _cueName: Weed_touch
+  _cueSheet: SE
+--- !u!114 &104748452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104748448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079086bcd09e391448a2c5435713f6c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchSoundSource: {fileID: 104748451}
+  pulloutSoundSource: {fileID: 104748453}
+--- !u!114 &104748453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104748448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e631c3b9947b54c823c6853a05529c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 0
+  _regionOnStart: {fileID: 0}
+  _listenerOnStart: {fileID: 0}
+  _use3dPositioning: 1
+  _freezeOrientation: 0
+  _loop: 0
+  _volume: 1
+  _pitch: 0
+  _androidUseLowLatencyVoicePool: 0
+  need_to_player_update_all: 1
+  _use3dRandomization: 0
+  _randomPositionListMaxLength: 0
+  randomize3dConfig:
+    followsOriginalSource: 0
+    calculationType: 0
+    calculationParameters:
+    - 0
+    - 0
+    - 0
+  _cueName: Weed_pullout
+  _cueSheet: SE
 --- !u!1 &173977658
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +318,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &294831153 stripped
 MonoBehaviour:
@@ -449,7 +533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3714888919954836293, guid: 62d9c36b27bbbc54f87d0b6804fa5c1e, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3714888919954836293, guid: 62d9c36b27bbbc54f87d0b6804fa5c1e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -542,7 +626,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4460064166726983714, guid: 2e2f080f57ff04840be1e92fa745100d, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4460064166726983714, guid: 2e2f080f57ff04840be1e92fa745100d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -699,3 +783,64 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85bba0ea039c87d4e8eb7e98b3b4c90a, type: 3}
+--- !u!1001 &8875487925620276587
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3315516532284975068, guid: c09fdef924226ea4b9db7d94404762ea, type: 3}
+      propertyPath: m_Name
+      value: SoundObj
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580112832159302108, guid: c09fdef924226ea4b9db7d94404762ea, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580112832159302108, guid: c09fdef924226ea4b9db7d94404762ea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580112832159302108, guid: c09fdef924226ea4b9db7d94404762ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 540
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580112832159302108, guid: c09fdef924226ea4b9db7d94404762ea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580112832159302108, guid: c09fdef924226ea4b9db7d94404762ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580112832159302108, guid: c09fdef924226ea4b9db7d94404762ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580112832159302108, guid: c09fdef924226ea4b9db7d94404762ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580112832159302108, guid: c09fdef924226ea4b9db7d94404762ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580112832159302108, guid: c09fdef924226ea4b9db7d94404762ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580112832159302108, guid: c09fdef924226ea4b9db7d94404762ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580112832159302108, guid: c09fdef924226ea4b9db7d94404762ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875487924926626995, guid: c09fdef924226ea4b9db7d94404762ea, type: 3}
+      propertyPath: dontDestroyOnLoad
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c09fdef924226ea4b9db7d94404762ea, type: 3}
