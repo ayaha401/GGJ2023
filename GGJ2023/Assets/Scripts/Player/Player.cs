@@ -24,6 +24,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     Sprite[] gloveSprites;
 
+    [SerializeField]
+    GrassSound grassSound;
+
     // クリックしたところの座標
     Vector2 dragStartPos;
     List<Grass> clickGrasses = new List<Grass>();
@@ -75,6 +78,7 @@ public class Player : MonoBehaviour
             {
                 // 保存
                 clickGrasses.Add(grass);
+                grassSound.PlayTouchSound();
             }
 
             //TODO:UIをクリックした時の処理も書く

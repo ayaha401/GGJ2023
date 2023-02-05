@@ -9,6 +9,7 @@ public class MainGameManager : MonoBehaviour
     [SerializeField] private Timer timer;
     [SerializeField] private Upgrade upgrade;
     [SerializeField] private ObjectPool objectPool;
+    [SerializeField] private ClearSound sound;
 
     public bool gameUpdatable = false;
 
@@ -40,7 +41,7 @@ public class MainGameManager : MonoBehaviour
         if (timer.CheckTimeUp())
         {
             // ここで終了処理
-            Debug.Log("タイムアップ");
+            sound.PlayClearSound();
             EndMainGame();
         }
     }

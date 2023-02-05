@@ -48,3 +48,5 @@ MonoBehaviour:
   pullOutPower: 1
   timer: {fileID: 0}
   PullOutCircle: {fileID: 0}
+  image: {fileID: 0}
+  gloveSprites: []

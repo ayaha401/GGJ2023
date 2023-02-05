@@ -10,6 +10,8 @@ public class Money : MonoBehaviour
     public int moneyProp => money;
     public Action moneyUIDraw;
 
+    [SerializeField] private MoneySound sound;
+
     /// <summary>
     /// Š‹à‚ğ‰Šú‰»‚·‚é
     /// </summary>
@@ -30,6 +32,7 @@ public class Money : MonoBehaviour
         if (!changeable) return;
         money += value;
         money = Mathf.Min(money, GameParameter.MONEY_MAX);
+        sound.PlayMoneySound();
         moneyUIDraw();
     }
 

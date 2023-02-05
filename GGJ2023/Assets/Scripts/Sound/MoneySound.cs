@@ -12,12 +12,12 @@ public class MoneySound : MonoBehaviour
     /// <summary>
     /// クリアサウンドを出す
     /// </summary>
-    public void PlayClearSound()
+    public void PlayMoneySound()
     {
         pb_Money = moneySoundSource.Play("Money_Get");
     }
 
-    public void StopClearSound()
+    public void StopMoneySound()
     {
         pb_Money.Stop();
     }
