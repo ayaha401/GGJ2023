@@ -20,6 +20,8 @@ public class Upgrade : MonoBehaviour
 
     public Action<int> glovePriceUIDraw;
     public Action<int> areaPriceUIDraw;
+    public Action cannotBuyGlove;
+    public Action cannotBuyArea;
 
     /// <summary>
     /// èâä˙âª
@@ -43,6 +45,11 @@ public class Upgrade : MonoBehaviour
     /// </summary>
     public void UpgradeGlove()
     {
+        if(gloveLevel == GameParameter.UPGRADE_MAX_LEVEL)
+        {
+            return;
+        }
+
         int glovePrice = glovePriceTable[gloveLevel - 1];
         bool buyable = money.moneyProp >= glovePrice;
         bool notMaxLevel = gloveLevel < GameParameter.UPGRADE_MAX_LEVEL;
@@ -50,9 +57,17 @@ public class Upgrade : MonoBehaviour
         {
             money.Minus(glovePrice);
             gloveLevel++;
-            glovePrice = glovePriceTable[gloveLevel - 1];
-            gloveUIDraw(gloveLevel);
-            glovePriceUIDraw(glovePrice);
+            if(gloveLevel + 1 < GameParameter.UPGRADE_MAX_LEVEL)
+            {
+                glovePrice = glovePriceTable[gloveLevel - 1];
+                gloveUIDraw(gloveLevel);
+                glovePriceUIDraw(glovePrice);
+            }
+            else
+            {
+                gloveUIDraw(gloveLevel);
+                cannotBuyGlove();
+            }
         }
     }
 
@@ -61,6 +76,11 @@ public class Upgrade : MonoBehaviour
     /// </summary>
     public void UpgradeArea()
     {
+        if (areaLevel == GameParameter.UPGRADE_MAX_LEVEL)
+        {
+            return;
+        }
+
         int areaPrice = areaPriceTable[areaLevel - 1];
         bool buyable = money.moneyProp >= areaPrice;
         bool notMaxLevel = areaLevel < GameParameter.UPGRADE_MAX_LEVEL;
@@ -68,9 +88,17 @@ public class Upgrade : MonoBehaviour
         {
             money.Minus(areaPrice);
             areaLevel++;
-            areaPrice = areaPriceTable[areaLevel - 1];
-            areaUIDraw(areaLevel);
-            areaPriceUIDraw(areaPrice);
+            if(areaLevel + 1 < GameParameter.UPGRADE_MAX_LEVEL)
+            {
+                areaPrice = areaPriceTable[areaLevel - 1];
+                areaUIDraw(areaLevel);
+                areaPriceUIDraw(areaPrice);
+            }
+            else
+            {
+                areaUIDraw(areaLevel);
+                cannotBuyArea();
+            }
         }
     }
 }
