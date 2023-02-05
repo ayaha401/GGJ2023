@@ -26,7 +26,7 @@ public static class GameParameter
     /// <summary>
     /// お金の最大値
     /// </summary>
-    public static int MONEY_MAX = 10000;
+    public static int MONEY_MAX = 99999;
 
     /// <summary>
     /// 雑草の値段
@@ -49,7 +49,7 @@ public static class GameParameter
     /// <summary>
     /// 制限時間(秒)
     /// </summary>
-    public static float TIME_LIMIT = 10f;
+    public static float TIME_LIMIT = 45f;
 
     // アップグレード関係＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
