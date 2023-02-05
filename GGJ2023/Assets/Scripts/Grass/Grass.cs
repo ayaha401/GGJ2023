@@ -19,19 +19,21 @@ public class Grass : MonoBehaviour
     [SerializeField]
     Sprite[] grassSprite;
 
+    float[] scaleValue = { 0.8f, 1.0f, 1.2f };
+
     const int MAX_LEVEL = 3;
     const int MIN_LEVEL = 1;
 
 
-    Test_ObjectPool objectPool;
+    ObjectPool objectPool;
+
     [SerializeField]
     SpriteRenderer spriteRenderer;
     Money money;
 
     void Start()
     {
-        objectPool = transform.GetComponentInParent<Test_ObjectPool>();
-        //spriteRenderer = GetComponent<SpriteRenderer>();
+        objectPool = transform.GetComponentInParent<ObjectPool>();
     }
 
     /// <summary>
@@ -65,6 +67,8 @@ public class Grass : MonoBehaviour
         // ïsê≥Ç»ílÇÃñhé~
         this.level = Mathf.Clamp(level, MIN_LEVEL, MAX_LEVEL);
         spriteRenderer.sprite = grassSprite[level - 1];
+        // ëêÇÃëÂÇ´Ç≥Çí≤êÆ
+        transform.localScale = new Vector3(scaleValue[level - 1], scaleValue[level - 1], scaleValue[level - 1]);
     }
 
     public void SetMoney(Money money)

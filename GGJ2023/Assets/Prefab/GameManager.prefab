@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleManager: {fileID: 0}
   mainGameManager: {fileID: 0}
+  resultManager: {fileID: 0}

@@ -33,7 +33,7 @@ public static class GameParameter
     /// <summary>
     /// 制限時間(秒)
     /// </summary>
-    public static float TIME_LIMIT = 6f;
+    public static float TIME_LIMIT = 10f;
 
     // アップグレード関係＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
@@ -52,4 +52,8 @@ public static class GameParameter
     /// </summary>
     public static int UPGRADE_MAX_LEVEL = 9;
 
+    /// <summary>
+    /// 最初に生成する数
+    /// </summary>
+    public static int GENERATECOUNT = 10;
 }
