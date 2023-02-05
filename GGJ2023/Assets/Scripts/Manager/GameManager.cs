@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     public void MainGameEnd()
     {
         mainGameManager.gameUpdatable = false;
+        mainGameManager.HideDayAndNight();
         resultManager.ShowResult();
     }
 

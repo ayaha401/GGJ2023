@@ -1080,6 +1080,22 @@ PrefabInstance:
       propertyPath: sound
       value: 
       objectReference: {fileID: 813897052}
+    - target: {fileID: 2477691562128464263, guid: 031355981f16e24489c8f887e9c912bb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1343.135
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477691562128464263, guid: 031355981f16e24489c8f887e9c912bb, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 870.2852
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477691562128464263, guid: 031355981f16e24489c8f887e9c912bb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -268.56732
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477691562128464263, guid: 031355981f16e24489c8f887e9c912bb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -89.14263
+      objectReference: {fileID: 0}
     - target: {fileID: 2577789799298633673, guid: 031355981f16e24489c8f887e9c912bb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
