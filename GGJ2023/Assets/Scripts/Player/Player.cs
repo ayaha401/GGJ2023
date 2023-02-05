@@ -1,20 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField, Tooltip("草を抜けるドラッグの長さ")]
     private float canPullOutPower = 1;
 
     [HideInInspector]
-    public float clickRadius = 0.5f;
+    public float clickArea = 0.5f;
+
+    [SerializeField]
+    float pullOutPower = 1;
 
     [SerializeField]
     Timer timer;
 
     [SerializeField]
     GameObject PullOutCircle;
+
+    [SerializeField]
+    Image image;
+    [SerializeField]
+    Sprite[] gloveSprites;
 
     // クリックしたところの座標
     Vector2 dragStartPos;
@@ -24,11 +32,21 @@ public class Player : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
+        AreaRender();
     }
 
     void Update()
     {
-        if (timer.onTimeUp) return;
+        if (timer.onTimeUp)
+        {
+            PullOutCircle.SetActive(false);
+            return;
+        }
+
+        Vector3 glovePos = Input.mousePosition;
+        image.rectTransform.position = glovePos;
+        PullOutCircle.transform.position = GetMouseWorldPos();
+
         if (Input.GetMouseButtonDown(0)) MouseDown();
         if (Input.GetMouseButtonUp(0)) MouseUp();
     }
@@ -41,11 +59,13 @@ public class Player : MonoBehaviour
     /// </returns>
     private void MouseDown()
     {
+        PullOutCircle.SetActive(false);
+        image.sprite = gloveSprites[1];
         // 開始位置の保存
         dragStartPos = GetMouseWorldPos();
 
         // レイで何に当たったか判断
-        RaycastHit2D[] raycasts = Physics2D.CircleCastAll(dragStartPos, clickRadius, Vector2.zero);
+        RaycastHit2D[] raycasts = Physics2D.CircleCastAll(dragStartPos, clickArea, Vector2.zero);
         if (raycasts == null) return;
 
         foreach (var item in raycasts)
@@ -69,13 +89,15 @@ public class Player : MonoBehaviour
     /// </summary>
     private void MouseUp()
     {
+        PullOutCircle.SetActive(true);
+        image.sprite = gloveSprites[0];
         if (clickGrasses == null) return;
 
         Vector2 dragEndPos = GetMouseWorldPos();
 
         // ドラッグの開始位置と終了位置からベクトルを計算
         Vector2 dragVec = dragEndPos - dragStartPos;
-        float dragPower = dragVec.magnitude;
+        float dragPower = dragVec.magnitude * pullOutPower;
         // ドラッグベクトルの表示
         Debug.DrawLine(dragStartPos, dragEndPos);
         // 上180° = ベクトルのYが0より大きい
@@ -98,5 +120,24 @@ public class Player : MonoBehaviour
         Vector2 mousePos = Input.mousePosition;
         Vector2 worldPos = mainCamera.ScreenToWorldPoint(mousePos);
         return worldPos;
+    }
+
+    public void GloveUpgrade(int currentLevel)
+    {
+        //TODO:要調整
+        pullOutPower = 1 * currentLevel;
+    }
+
+    public void AreaUpgrade(int currentLevel)
+    {
+        //TODO:要調整
+        clickArea = 1 * currentLevel;
+        AreaRender();
+    }
+
+    // 除草範囲を調整
+    void AreaRender()
+    {
+        PullOutCircle.transform.localScale = new Vector3(clickArea * 2, clickArea * 2, 1);
     }
 }

@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test_ObjectPool : MonoBehaviour
+public class ObjectPool : MonoBehaviour
 {
-    [SerializeField]
-    private int generationCount = 50;
-
     [SerializeField]
     GameObject grassPrefab;
 
@@ -17,23 +14,16 @@ public class Test_ObjectPool : MonoBehaviour
 
     Vector2 defaultPos = new Vector2(200, 200);
 
-    float insPosXRangeMin = -8;
-    float insPosXRangeMax = 8;
-    float insPosYRangeMin = -4;
-    float insPosYRangeMax = 4;
-
-    void Start()
-    {
-        InstantiateObj(generationCount);
-
-        GenerateGrass(10);
-    }
+    const float insPosXMin = -7.8f;
+    const float insPosXMax = 2.08f;
+    const float insPosYMin = -3.47f;
+    const float insPosYMax = 2.08f;
 
     /// <summary>
     /// オブジェクトを実際に生成するメソッド
     /// </summary>
     /// <param name="count"></param>
-    void InstantiateObj(int count = 5)
+    public void InstantiateObj(int count = 5)
     {
         // 世界の端にたくさん作る
         for (int i = 0; i < count; i++)
@@ -41,7 +31,8 @@ public class Test_ObjectPool : MonoBehaviour
             GameObject obj = Instantiate(grassPrefab, defaultPos, Quaternion.identity, gameObject.transform);
             grasses.Add(obj);
             obj.SetActive(false);
-            obj.GetComponent<Grass>().SetMoney(money);
+            Grass grass = obj.GetComponent<Grass>();
+            grass.SetMoney(money);
         }
     }
 
@@ -86,10 +77,12 @@ public class Test_ObjectPool : MonoBehaviour
             }
 
             Vector2 insPos;
-            insPos.x = Random.Range(insPosXRangeMin, insPosXRangeMax);
-            insPos.y = Random.Range(insPosYRangeMin, insPosYRangeMax);
+            insPos.x = Random.Range(insPosXMin, insPosXMax);
+            insPos.y = Random.Range(insPosYMin, insPosYMax);
 
             inactiveObj.transform.position = insPos;
+            // 強さの設定
+            inactiveObj.GetComponent<Grass>().Setlevel(Random.Range(1, 4));
             inactiveObj.SetActive(true);
         }
     }

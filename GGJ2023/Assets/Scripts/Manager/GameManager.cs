@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TitleManager titleManager;
     [SerializeField] private MainGameManager mainGameManager;
     [SerializeField] private ResultManager resultManager;
+    [SerializeField] private CursolManager cursolManager;
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         resultManager.HideResult();
+        cursolManager.NoCursol();
     }
 
     /// <summary>
