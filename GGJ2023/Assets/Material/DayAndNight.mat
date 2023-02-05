@@ -27,7 +27,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 0.5
-    - _CurrentTime: 0.70299107
+    - _CurrentTime: 0.9725109
     m_Colors:
     - _DayColor: {r: 1, g: 1, b: 1, a: 1}
     - _NightColor: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
