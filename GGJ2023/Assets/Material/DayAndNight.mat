@@ -27,8 +27,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 0.5
-    - _CurrentTime: 0.9725109
+    - _CurrentTime: 0.31384975
     m_Colors:
     - _DayColor: {r: 1, g: 1, b: 1, a: 1}
-    - _NightColor: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
+    - _NightColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_BuildTextureStacks: []

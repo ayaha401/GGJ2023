@@ -12,6 +12,7 @@ public class MainGameManager : MonoBehaviour
     [SerializeField] private ObjectPool objectPool;
     [SerializeField] private ClearSound sound;
     [SerializeField] private Image dayAndNightImage;
+    [SerializeField] private Player player;
 
     public bool gameUpdatable = false;
 
@@ -37,6 +38,7 @@ public class MainGameManager : MonoBehaviour
         upgrade.Init();
         dayAndNightImage.enabled = true;
         dayAndNightMat.SetFloat("_Alpha", 0.5f);
+        player.ResetStutus();
 
         // ÉQÅ[ÉÄâÊñ Ç…èoÇ∑
         objectPool.GenerateGrass(GameParameter.GENERATECOUNT);

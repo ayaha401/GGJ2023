@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
+  - enabled: 1
     path: Assets/Nkn/MasterCopy.unity
     guid: b2c1fbf4de19b06478ab9a7352f170da
-  - enabled: 1
+  - enabled: 0
     path: Assets/Master/Master.unity
     guid: 2b01a322e15c15b48a2c19b419adbb44
   m_configObjects: {}
