@@ -9,6 +9,7 @@ public class Money : MonoBehaviour
     private int money;
     public int moneyProp => money;
     public Action moneyUIDraw;
+    public Action scoreUIDraw;
 
     [SerializeField] private MoneySound sound;
 

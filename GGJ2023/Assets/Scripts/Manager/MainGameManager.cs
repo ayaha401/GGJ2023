@@ -38,6 +38,7 @@ public class MainGameManager : MonoBehaviour
             // ‚±‚±‚ÅI—¹ˆ—
             sound.PlayClearSound();
             objectPool.RemoveGrass();
+            money.scoreUIDraw();
             EndMainGame();
         }
     }
