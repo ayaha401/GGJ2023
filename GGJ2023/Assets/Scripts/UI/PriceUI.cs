@@ -13,6 +13,9 @@ public class PriceUI : MonoBehaviour
     {
         upgrade.glovePriceUIDraw += DrawGlovePrice;
         upgrade.areaPriceUIDraw += DrawAreaPrice;
+
+        upgrade.cannotBuyGlove += DrawCannotBuyGlove;
+        upgrade.cannotBuyArea += DrawCannotBuyArea;
     }
 
     private void DrawGlovePrice(int price)
@@ -23,5 +26,15 @@ public class PriceUI : MonoBehaviour
     private void DrawAreaPrice(int price)
     {
         areaPriceUI.text = price.ToString();
+    }
+
+    private void DrawCannotBuyGlove()
+    {
+        glovePriceUI.text = "îÑÇËêÿÇÍ";
+    }
+
+    private void DrawCannotBuyArea()
+    {
+        areaPriceUI.text = "îÑÇËêÿÇÍ";
     }
 }
