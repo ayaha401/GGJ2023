@@ -10,6 +10,9 @@ public class ObjectPool : MonoBehaviour
     [SerializeField]
     Money money;
 
+    [SerializeField, Tooltip("プールに生成する数")]
+    private int InstantiateCount = 50;
+
     List<GameObject> grasses = new List<GameObject>();
 
     Vector2 defaultPos = new Vector2(200, 200);
@@ -18,6 +21,12 @@ public class ObjectPool : MonoBehaviour
     const float insPosXMax = 2.08f;
     const float insPosYMin = -3.47f;
     const float insPosYMax = 2.08f;
+
+    private void Start()
+    {
+        // プール用のオブジェクトを生成
+        InstantiateObj(InstantiateCount);
+    }
 
     /// <summary>
     /// オブジェクトを実際に生成するメソッド
@@ -74,6 +83,7 @@ public class ObjectPool : MonoBehaviour
                 // 数が足りなくなったら増やす
                 InstantiateObj(5);
                 GenerateGrass(count);
+                return;
             }
 
             Vector2 insPos;
@@ -84,6 +94,20 @@ public class ObjectPool : MonoBehaviour
             // 強さの設定
             inactiveObj.GetComponent<Grass>().Setlevel(Random.Range(1, 4));
             inactiveObj.SetActive(true);
+        }
+    }
+
+    /// <summary>
+    /// 除草剤 全ての草をプールに戻す
+    /// </summary>
+    public void RemoveGrass()
+    {
+        foreach (var item in grasses)
+        {
+            Debug.Log("除草");
+            item.transform.position = defaultPos;
+            item.SetActive(false);
+
         }
     }
 }
