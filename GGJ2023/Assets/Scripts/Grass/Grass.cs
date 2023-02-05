@@ -8,18 +8,8 @@ public class Grass : MonoBehaviour
     public int level = 1;
 
     [SerializeField]
-    private int level1MoneyValue;
-
-    [SerializeField]
-    private int level2MoneyValue;
-
-    [SerializeField]
-    private int level3MoneyValue;
-
-    [SerializeField]
     Sprite[] grassSprite;
 
-    float[] scaleValue = { 0.8f, 1.0f, 1.2f };
 
     const int MAX_LEVEL = 3;
     const int MIN_LEVEL = 1;
@@ -45,13 +35,13 @@ public class Grass : MonoBehaviour
         switch (level)
         {
             case 1:
-                moneyValue = level1MoneyValue;
+                moneyValue = GameParameter.level1MoneyValue;
                 break;
             case 2:
-                moneyValue = level2MoneyValue;
+                moneyValue = GameParameter.level2MoneyValue;
                 break;
             case 3:
-                moneyValue = level3MoneyValue;
+                moneyValue = GameParameter.level3MoneyValue;
                 break;
             default:
                 moneyValue = 0;
@@ -68,7 +58,7 @@ public class Grass : MonoBehaviour
         this.level = Mathf.Clamp(level, MIN_LEVEL, MAX_LEVEL);
         spriteRenderer.sprite = grassSprite[level - 1];
         // ëêÇÃëÂÇ´Ç≥Çí≤êÆ
-        transform.localScale = new Vector3(scaleValue[level - 1], scaleValue[level - 1], scaleValue[level - 1]);
+        transform.localScale = new Vector3(GameParameter.scaleValue[level - 1], GameParameter.scaleValue[level - 1], GameParameter.scaleValue[level - 1]);
     }
 
     public void SetMoney(Money money)

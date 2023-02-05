@@ -92,7 +92,9 @@ public class ObjectPool : MonoBehaviour
 
             inactiveObj.transform.position = insPos;
             // ã≠Ç≥ÇÃê›íË
-            inactiveObj.GetComponent<Grass>().Setlevel(Random.Range(1, 4));
+            int rndNum = Random.Range(1, 11);
+            int level = rndNum <= 1 ? 3 : rndNum <= 5 ? 2 : 1;
+            inactiveObj.GetComponent<Grass>().Setlevel(level);
             inactiveObj.SetActive(true);
         }
     }
@@ -104,10 +106,8 @@ public class ObjectPool : MonoBehaviour
     {
         foreach (var item in grasses)
         {
-            Debug.Log("èúëê");
             item.transform.position = defaultPos;
             item.SetActive(false);
-
         }
     }
 }
