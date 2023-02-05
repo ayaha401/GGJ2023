@@ -15,9 +15,6 @@ public class MainGameManager : MonoBehaviour
 
     public Action EndMainGame;
 
-    [SerializeField, Tooltip("プールに生成する数")]
-    private int InstantiateCount = 50;
-
     public void Init()
     {
         // ここで初期化
@@ -29,8 +26,6 @@ public class MainGameManager : MonoBehaviour
         timer.Init();
         upgrade.Init();
 
-        // プール用のオブジェクトを生成
-        objectPool.InstantiateObj(InstantiateCount);
         // ゲーム画面に出す
         objectPool.GenerateGrass(GameParameter.GENERATECOUNT);
     }
@@ -42,6 +37,7 @@ public class MainGameManager : MonoBehaviour
         {
             // ここで終了処理
             sound.PlayClearSound();
+            objectPool.RemoveGrass();
             EndMainGame();
         }
     }
