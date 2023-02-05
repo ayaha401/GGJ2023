@@ -14,6 +14,7 @@ public class Grass : MonoBehaviour
     const int MAX_LEVEL = 3;
     const int MIN_LEVEL = 1;
 
+    float hitPoint;
 
     ObjectPool objectPool;
 
@@ -29,7 +30,7 @@ public class Grass : MonoBehaviour
     /// <summary>
     /// ‘‚ª”²‚¯‚éƒƒ\ƒbƒh
     /// </summary>
-    public void PullOut()
+    public void PullOut(float atk = 1)
     {
         int moneyValue;
         switch (level)
@@ -48,6 +49,10 @@ public class Grass : MonoBehaviour
                 break;
         }
 
+        hitPoint -= atk;
+
+        if (hitPoint > 0) return;
+
         objectPool.MovingToPool(gameObject);
         money.Plus(moneyValue);
     }
@@ -59,6 +64,8 @@ public class Grass : MonoBehaviour
         spriteRenderer.sprite = grassSprite[level - 1];
         // ‘‚Ì‘å‚«‚³‚ğ’²®
         transform.localScale = new Vector3(GameParameter.scaleValue[level - 1], GameParameter.scaleValue[level - 1], GameParameter.scaleValue[level - 1]);
+
+        hitPoint = GameParameter.WeedHP[level - 1];
     }
 
     public void SetMoney(Money money)

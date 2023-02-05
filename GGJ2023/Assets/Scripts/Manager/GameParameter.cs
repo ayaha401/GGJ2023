@@ -11,6 +11,14 @@ public static class GameParameter
     public static float tadeoutTime = 0.5f;
 
 
+    // プレイヤー関係＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+    /// <summary>
+    /// プレイヤーの攻撃力
+    /// </summary>
+    public static float PlayerATK = 1;
+
+
     // お金関係＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
     /// <summary>
@@ -49,7 +57,7 @@ public static class GameParameter
     /// <summary>
     /// 制限時間(秒)
     /// </summary>
-    public static float TIME_LIMIT = 45f;
+    public static float TIME_LIMIT = 60f;
 
     // アップグレード関係＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
@@ -59,9 +67,19 @@ public static class GameParameter
     public static int[] glovePriceTable = new int[8] { 100, 120, 140, 160, 180, 200, 400, 600 };
 
     /// <summary>
+    /// 軍手のアップグレード力
+    /// </summary>
+    public static float[] glovePowerTable = { 1.0f, 1.5f, 1.6f, 1.8f, 2.0f, 2.2f, 2.5f, 2.7f, 3.0f };
+
+    /// <summary>
     /// 友達のアップグレードの値段
     /// </summary>
     public static int[] areaPriceTable = new int[8] { 100, 120, 140, 160, 180, 200, 400, 600 };
+
+    /// <summary>
+    /// 友達のアップグレード力
+    /// </summary>
+    public static float[] areaPowerTable = { 1.0f, 1.3f, 1.5f, 1.7f, 1.9f, 2.0f, 2.3f, 2.4f, 2.5f };
 
     /// <summary>
     /// 軍手の初期レベル
@@ -89,4 +107,9 @@ public static class GameParameter
     /// 草の大きさ
     /// </summary>
     public static float[] scaleValue = { 0.8f, 1.0f, 1.2f };
+
+    /// <summary>
+    /// 草の耐久性
+    /// </summary>
+    public static int[] WeedHP = { 1, 3, 5 };
 }
