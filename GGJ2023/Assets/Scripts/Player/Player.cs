@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     GameObject PullOutCircle;
+
+    [SerializeField]
+    Image image;
+    [SerializeField]
+    Sprite[] gloveSprites;
 
     // クリックしたところの座標
     Vector2 dragStartPos;
@@ -37,6 +43,8 @@ public class Player : MonoBehaviour
             return;
         }
 
+        Vector3 glovePos = Input.mousePosition;
+        image.rectTransform.position = glovePos;
         PullOutCircle.transform.position = GetMouseWorldPos();
 
         if (Input.GetMouseButtonDown(0)) MouseDown();
@@ -52,6 +60,7 @@ public class Player : MonoBehaviour
     private void MouseDown()
     {
         PullOutCircle.SetActive(false);
+        image.sprite = gloveSprites[1];
         // 開始位置の保存
         dragStartPos = GetMouseWorldPos();
 
@@ -81,6 +90,7 @@ public class Player : MonoBehaviour
     private void MouseUp()
     {
         PullOutCircle.SetActive(true);
+        image.sprite = gloveSprites[0];
         if (clickGrasses == null) return;
 
         Vector2 dragEndPos = GetMouseWorldPos();
